@@ -1,0 +1,32 @@
+# 设备连接
+device:
+  # adb 可执行文件：填 MuMu 自带 adb 的完整路径，或直接写 "adb"（需已在 PATH 中）
+  # 本机 MuMu 15（Android 15）的实际路径如下；换机器/换版本时用 MuMuManager 查找
+  adb: "D:/Program Files/Netease/MuMu/nx_device/15.0/shell/adb.exe"
+  # MuMu 首个实例默认 127.0.0.1:16384，多开实例端口会递增（实例 1 为 16416）
+  serial: "127.0.0.1:16384"
+  connect_on_start: true
+  # 运行分辨率，需与截图/模板一致；不确定时先跑 doctor 看实际值，或写 null 跳过校验
+  screen: [1280, 720]
+  screenshot_retry: 2
+
+# 图像识别
+vision:
+  # 模板图目录，相对项目根目录
+  template_dir: "assets/templates/tata"
+  # 模板匹配阈值（0~1），调高更严格、调低更宽松
+  threshold: 0.85
+  # 找目标时的轮询间隔（秒）
+  poll_interval: 0.6
+
+# 动作
+actions:
+  # 点击坐标随机偏移像素，避免每次落在同一像素
+  jitter: 2
+  # 滑动默认时长（毫秒）
+  swipe_duration: 300
+  # 每次动作后的等待（秒），给界面留出响应时间
+  tap_delay: 0.6
+
+# 日志目录（失败截图会写到 logs/failures/）
+log_dir: "logs"
